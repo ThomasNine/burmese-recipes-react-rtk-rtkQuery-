@@ -6,7 +6,8 @@ import { SkeletonCard } from "../components/SkeletonCard";
 import PaginationComponent from "../components/PaginationComponent";
 
 const MeatEaterPage = () => {
-  const { data: userTypes } = useGetUserTypesQuery();
+  const { data: userTypes, isSuccess: isUserTypeSuccess } =
+    useGetUserTypesQuery();
   const { data, isLoading, isError, isSuccess } = useGetRecipesQuery();
   const numbers = Array.from({ length: 5 }, (_, index) => index + 1);
   const [currentPage, setCurrentPage] = useState(1);
@@ -27,7 +28,7 @@ const MeatEaterPage = () => {
       </div>
     );
   }
-  if (isSuccess) {
+  if (isSuccess && isUserTypeSuccess) {
     const meatEaterData = data?.filter(
       (i) => i.UserType === userTypes[0].UserCode
     );

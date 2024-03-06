@@ -1,16 +1,17 @@
 import React, { useState } from "react";
-import { useGetUserTypesQuery } from "../store/services/endpoints/user_types.endpoints";
-import { useGetRecipesQuery } from "../store/services/endpoints/recepies.endpoints";
+import { Button } from "../components/ui/button";
+import { Input } from "../components/ui/input";
 import Card from "../components/Card";
 import { SkeletonCard } from "../components/SkeletonCard";
+
+import { useGetRecipesQuery } from "../store/services/endpoints/recepies.endpoints";
 import PaginationComponent from "../components/PaginationComponent";
 
-const VeganPage = () => {
-  const { data: userTypes, isSuccess: isUserTypeSuccess } =
-    useGetUserTypesQuery();
+const SearchPage = () => {
   const { data, isLoading, isError, isSuccess } = useGetRecipesQuery();
-  const numbers = Array.from({ length: 5 }, (_, index) => index + 1);
+  const [searchWord, setSearchWords] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
+  const numbers = Array.from({ length: 5 }, (_, index) => index + 1);
 
   if (isLoading) {
     return (
@@ -28,15 +29,27 @@ const VeganPage = () => {
       </div>
     );
   }
-  if (isSuccess && isUserTypeSuccess) {
-    const veganData = data?.filter((i) => i.UserType === userTypes[1].UserCode);
+  if (isSuccess) {
+    const handleSearch = (e) => {
+      setSearchWords(e.target.value);
+    };
+    let searchedData = data.filter((i) => i.Name.includes(searchWord));
+
     const itemsPerPage = 15;
-    const totalPages = Math.ceil(veganData.length / itemsPerPage);
+    const totalPages = Math.ceil(searchedData.length / itemsPerPage);
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
-    const currentData = veganData.slice(startIndex, endIndex);
+    const currentData = searchedData.slice(startIndex, endIndex);
     return (
       <>
+        <div className="flex w-full max-w-60 sm:max-w-sm items-center mx-auto mt-10">
+          <Input
+            type="search"
+            placeholder="Search"
+            autoFocus
+            onChange={handleSearch}
+          />
+        </div>
         <div className=" flex justify-center flex-wrap gap-x-3 sm:gap-x-5 gap-y-5 sm:gap-y-7 pt-10 pb-5 min-h-[86vh]">
           {currentData?.map((i) => (
             <div key={i.id}>
@@ -56,4 +69,4 @@ const VeganPage = () => {
   }
 };
 
-export default VeganPage;
+export default SearchPage;

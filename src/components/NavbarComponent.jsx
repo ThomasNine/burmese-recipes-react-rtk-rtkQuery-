@@ -6,16 +6,17 @@ import {
   NavbarItem,
   NavbarMenuToggle,
   NavbarMenu,
-  Input,
   Button,
+  Tooltip,
 } from "@nextui-org/react";
 import { Link, NavLink, useLocation } from "react-router-dom";
 import LanguageDropdown from "./LanguageDropdown";
 import { useSelector } from "react-redux";
 
 export default function NavbarComponent() {
-  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const langData = useSelector((state) => state.language.langData);
+  const lang = useSelector((state) => state.language.lang);
   const { pathname } = useLocation();
 
   return (
@@ -27,7 +28,7 @@ export default function NavbarComponent() {
         />
         <NavbarBrand>
           <Link to={"/all-recipes/page/1"}>
-            <p className=" font-logo text-2xl text-first">Burmese Recipes</p>
+            <p className=" font-logo text-xl text-first">Burmese Recipes</p>
           </Link>
         </NavbarBrand>
       </NavbarContent>
@@ -50,41 +51,34 @@ export default function NavbarComponent() {
           </NavLink>
         </NavbarItem>
       </NavbarContent>
-      <NavbarContent className="hidden sm:flex gap-4" justify="end">
+      <NavbarContent className="flex gap-1" justify="end">
         <NavbarItem>
-          <Input
-            classNames={{
-              base: "max-w-full sm:max-w-[10rem] h-10",
-              mainWrapper: "h-full",
-              input: "text-small",
-              inputWrapper:
-                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-            }}
-            placeholder="Search..."
-            size="sm"
-            startContent={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                />
-              </svg>
-            }
-            type="search"
-          />
+          <Link to={"/search/page/1"}>
+            <Tooltip content={lang === "eng" ? "Search" : "ရှာဖွေပါ"}>
+              <Button isIconOnly size="sm" color="default" variant="bordered">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  fill="none"
+                  viewBox="0 0 24 24"
+                  strokeWidth={1.5}
+                  stroke="currentColor"
+                  className="w-5 h-5"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
+                  />
+                </svg>
+              </Button>
+            </Tooltip>
+          </Link>
         </NavbarItem>
         <NavbarItem>
           <LanguageDropdown />
         </NavbarItem>
       </NavbarContent>
+      {/* for sm nav  */}
       <NavbarMenu>
         <NavbarItem>
           <NavLink
@@ -101,39 +95,6 @@ export default function NavbarComponent() {
           >
             <p className=" font-medium hover:text-first">{langData.Vegan}</p>
           </NavLink>
-        </NavbarItem>
-        <NavbarItem className=" border-t-2 pt-3  sm:hidden">
-          <LanguageDropdown />
-        </NavbarItem>
-        <NavbarItem className=" sm:hidden">
-          <Input
-            classNames={{
-              base: "max-w-full sm:max-w-[10rem] h-10",
-              mainWrapper: "h-full",
-              input: "text-small",
-              inputWrapper:
-                "h-full font-normal text-default-500 bg-default-400/20 dark:bg-default-500/20",
-            }}
-            placeholder="Search..."
-            size="sm"
-            startContent={
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                fill="none"
-                viewBox="0 0 24 24"
-                strokeWidth={1.5}
-                stroke="currentColor"
-                className="w-6 h-6"
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d="m21 21-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z"
-                />
-              </svg>
-            }
-            type="search"
-          />
         </NavbarItem>
       </NavbarMenu>
     </Navbar>
