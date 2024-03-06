@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -15,16 +15,15 @@ import { useSelector } from "react-redux";
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const langData = useSelector((state) => state.language.langData);
   const lang = useSelector((state) => state.language.lang);
   const { pathname } = useLocation();
 
   return (
-    <Navbar onMenuOpenChange={setIsMenuOpen} isBordered>
+    <Navbar onMenuOpenChange={setIsMenuOpen} isMenuOpen={isMenuOpen} isBordered>
       <NavbarContent justify="start">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="md:hidden"
+          className="sm:hidden"
         />
         <NavbarBrand>
           <Link to={"/all-recipes/page/1"}>
@@ -39,7 +38,9 @@ export default function NavbarComponent() {
             to={"/meat-eater/page/1"}
             className={pathname.includes("/meat-eater/") && "text-first"}
           >
-            <p className=" font-medium hover:text-first">{langData.Meat}</p>
+            <p className=" font-medium hover:text-first">
+              {lang === "eng" ? "Meat" : "အသားဟင်း"}
+            </p>
           </NavLink>
         </NavbarItem>
         <NavbarItem>
@@ -47,7 +48,9 @@ export default function NavbarComponent() {
             to={"/vegan/page/1"}
             className={pathname.includes("/vegan/") && "text-first"}
           >
-            <p className=" font-medium hover:text-first">{langData.Vegan}</p>
+            <p className=" font-medium hover:text-first">
+              {lang === "eng" ? "Vegan" : "သက်သက်လွတ်"}
+            </p>
           </NavLink>
         </NavbarItem>
       </NavbarContent>
@@ -85,7 +88,9 @@ export default function NavbarComponent() {
             to={"/meat-eater/page/1"}
             className={pathname.includes("/meat-eater/") && "text-first"}
           >
-            <p className=" font-medium hover:text-first">{langData.Meat}</p>
+            <p className=" font-medium hover:text-first">
+              {lang === "eng" ? "Meat" : "အသားဟင်း"}
+            </p>
           </NavLink>
         </NavbarItem>
         <NavbarItem>
@@ -93,7 +98,9 @@ export default function NavbarComponent() {
             to={"/vegan/page/1"}
             className={pathname.includes("/vegan/") && "text-first"}
           >
-            <p className=" font-medium hover:text-first">{langData.Vegan}</p>
+            <p className=" font-medium hover:text-first">
+              {lang === "eng" ? "Vegan" : "သက်သက်လွတ်"}
+            </p>
           </NavLink>
         </NavbarItem>
       </NavbarMenu>

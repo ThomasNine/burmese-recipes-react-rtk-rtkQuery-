@@ -11,7 +11,7 @@ const DetailPage = () => {
   const { data, isLoading, isSuccess, isError } = useGetRecipesByIdQuery(id);
   const { data: userTypeData, isSuccess: userTypeDataSucces } =
     useGetUserTypesQuery();
-  console.log(data);
+
   if (isLoading) {
     return (
       <div className=" flex justify-center flex-wrap gap-x-3 sm:gap-x-5 gap-y-5 sm:gap-y-7 my-10"></div>

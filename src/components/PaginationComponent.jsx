@@ -1,12 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import {
   Pagination,
   PaginationContent,
-  PaginationEllipsis,
   PaginationItem,
   PaginationLink,
-  PaginationNext,
-  PaginationPrevious,
 } from "./ui/pagination";
 import { useNavigate, useLocation } from "react-router-dom";
 

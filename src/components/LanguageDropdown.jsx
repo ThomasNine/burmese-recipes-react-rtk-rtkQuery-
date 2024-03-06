@@ -16,7 +16,7 @@ import {
 
 export default function LanguageDropdown() {
   const lang = useSelector((state) => state.language.lang);
-  const langData = useSelector((state) => state.language.langData);
+
   const dispatch = useDispatch();
   return (
     <Dropdown>
@@ -44,10 +44,10 @@ export default function LanguageDropdown() {
       </DropdownTrigger>
       <DropdownMenu aria-label="Dynamic Actions">
         <DropdownItem onClick={() => dispatch(changeToMMLanguage())}>
-          {langData.MMLanguage}
+          {lang === "eng" ? "Myanmar" : "မြန်မာဘာသာ"}
         </DropdownItem>
         <DropdownItem onClick={() => dispatch(changeToEngLanguage())}>
-          {langData.EngLanguage}
+          {lang === "eng" ? "English" : "အင်္ဂလိပ်ဘာသာ"}
         </DropdownItem>
       </DropdownMenu>
     </Dropdown>
