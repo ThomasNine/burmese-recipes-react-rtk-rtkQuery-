@@ -1,8 +1,11 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { ApiService } from "./services/ApiService";
+import { LanguageSlice } from "./globalState/LanguageSlice";
 
 export const store = configureStore({
   reducer: {
+    language: LanguageSlice.reducer,
+
     // Add the generated reducer as a specific top-level slice
     [ApiService.reducerPath]: ApiService.reducer,
   },

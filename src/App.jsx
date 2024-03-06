@@ -10,7 +10,7 @@ const App = () => {
   return (
     <>
       <NavbarComponent />
-      <div className=" container mx-auto">
+      <div className=" sm:container mx-auto">
         <RoutePath />
       </div>
     </>

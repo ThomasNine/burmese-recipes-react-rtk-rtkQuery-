@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   Navbar,
   NavbarBrand,
@@ -6,18 +6,17 @@ import {
   NavbarItem,
   NavbarMenuToggle,
   NavbarMenu,
-  NavbarMenuItem,
   Input,
   Button,
 } from "@nextui-org/react";
-import { useGetUserTypesQuery } from "../store/services/endpoints/user_types.endpoints";
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
+import LanguageDropdown from "./LanguageDropdown";
+import { useSelector } from "react-redux";
 
 export default function NavbarComponent() {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
-  const { data } = useGetUserTypesQuery();
-
-  const [MMLanguage, setMMLanguage] = useState(false);
+  const langData = useSelector((state) => state.language.langData);
+  const { pathname } = useLocation();
 
   return (
     <Navbar onMenuOpenChange={setIsMenuOpen} isBordered>
@@ -27,7 +26,7 @@ export default function NavbarComponent() {
           className="md:hidden"
         />
         <NavbarBrand>
-          <Link to={"/"}>
+          <Link to={"/all-recipes/page/1"}>
             <p className=" font-logo text-2xl text-first">Burmese Recipes</p>
           </Link>
         </NavbarBrand>
@@ -36,33 +35,18 @@ export default function NavbarComponent() {
       <NavbarContent className="hidden md:flex gap-4" justify="center">
         <NavbarItem>
           <NavLink
-            to={"/"}
-            className={({ isActive }) => (isActive ? "active text-first" : "")}
+            to={"/meat-eater/page/1"}
+            className={pathname.includes("/meat-eater/") && "text-first"}
           >
-            <p className=" font-medium hover:text-first">
-              {MMLanguage ? "အားလုံး" : "All"}
-            </p>
-          </NavLink>
-        </NavbarItem>
-
-        <NavbarItem>
-          <NavLink
-            to={"/meat-eater"}
-            className={({ isActive }) => (isActive ? "active text-first" : "")}
-          >
-            <p className=" font-medium hover:text-first">
-              {MMLanguage ? "အသား" : "Meat"}
-            </p>
+            <p className=" font-medium hover:text-first">{langData.Meat}</p>
           </NavLink>
         </NavbarItem>
         <NavbarItem>
           <NavLink
-            to={"/vegan"}
-            className={({ isActive }) => (isActive ? "active text-first" : "")}
+            to={"/vegan/page/1"}
+            className={pathname.includes("/vegan/") && "text-first"}
           >
-            <p className=" font-medium hover:text-first">
-              {MMLanguage ? "သက်သတ်လွတ်" : "Vegan"}
-            </p>
+            <p className=" font-medium hover:text-first">{langData.Vegan}</p>
           </NavLink>
         </NavbarItem>
       </NavbarContent>
@@ -98,87 +82,28 @@ export default function NavbarComponent() {
           />
         </NavbarItem>
         <NavbarItem>
-          <Button
-            as={Link}
-            color="primary"
-            href="#"
-            variant="flat"
-            onClick={() => setMMLanguage(!MMLanguage)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"
-              />
-            </svg>
-            {MMLanguage ? "အင်္ဂလိပ်" : "mm"}
-          </Button>
+          <LanguageDropdown />
         </NavbarItem>
       </NavbarContent>
       <NavbarMenu>
         <NavbarItem>
           <NavLink
-            to={"/"}
-            className={({ isActive }) => (isActive ? "active text-first" : "")}
+            to={"/meat-eater/page/1"}
+            className={pathname.includes("/meat-eater/") && "text-first"}
           >
-            <p className=" font-medium hover:text-first">
-              {MMLanguage ? "အားလုံး" : "All"}
-            </p>
-          </NavLink>
-        </NavbarItem>
-
-        <NavbarItem>
-          <NavLink
-            to={"/meat-eater"}
-            className={({ isActive }) => (isActive ? "active text-first" : "")}
-          >
-            <p className=" font-medium hover:text-first">
-              {MMLanguage ? "အသား" : "Meat"}
-            </p>
+            <p className=" font-medium hover:text-first">{langData.Meat}</p>
           </NavLink>
         </NavbarItem>
         <NavbarItem>
           <NavLink
-            to={"/vegan"}
-            className={({ isActive }) => (isActive ? "active text-first" : "")}
+            to={"/vegan/page/1"}
+            className={pathname.includes("/vegan/") && "text-first"}
           >
-            <p className=" font-medium hover:text-first">
-              {MMLanguage ? "သက်သတ်လွတ်" : "Vegan"}
-            </p>
+            <p className=" font-medium hover:text-first">{langData.Vegan}</p>
           </NavLink>
         </NavbarItem>
         <NavbarItem className=" border-t-2 pt-3  sm:hidden">
-          <Button
-            as={Link}
-            color="primary"
-            href="#"
-            variant="flat"
-            onClick={() => setMMLanguage(!MMLanguage)}
-          >
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
-              fill="none"
-              viewBox="0 0 24 24"
-              strokeWidth={1.5}
-              stroke="currentColor"
-              className="w-6 h-6"
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="m10.5 21 5.25-11.25L21 21m-9-3h7.5M3 5.621a48.474 48.474 0 0 1 6-.371m0 0c1.12 0 2.233.038 3.334.114M9 5.25V3m3.334 2.364C11.176 10.658 7.69 15.08 3 17.502m9.334-12.138c.896.061 1.785.147 2.666.257m-4.589 8.495a18.023 18.023 0 0 1-3.827-5.802"
-              />
-            </svg>
-            {MMLanguage ? "အင်္ဂလိပ်" : "mm"}
-          </Button>
+          <LanguageDropdown />
         </NavbarItem>
         <NavbarItem className=" sm:hidden">
           <Input

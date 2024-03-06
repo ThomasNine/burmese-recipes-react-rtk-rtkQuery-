@@ -10,9 +10,10 @@ const RoutePath = () => {
   return (
     <Routes>
       <Route path="/" element={<HomePage />} />
-      <Route path="/vegan" element={<VeganPage />} />
-      <Route path="/meat-eater" element={<MeatEaterPage />} />
-      <Route path="/recipes/:name" element={<DetailPage />} />
+      <Route path="/all-recipes/page/:page" element={<HomePage />} />
+      <Route path="/meat-eater/page/:page" element={<MeatEaterPage />} />
+      <Route path="/vegan/page/:page" element={<VeganPage />} />
+      <Route path="/recipes/:id" element={<DetailPage />} />
 
       {/* FallbackRoutesPage */}
       <Route path="*" element={<FallbackRoutesPage />} />

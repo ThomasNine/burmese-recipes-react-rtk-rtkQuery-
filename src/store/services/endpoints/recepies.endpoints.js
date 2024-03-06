@@ -7,7 +7,12 @@ const recipesEndpoint = ApiService.injectEndpoints({
       tagTypes: ["Recipes"],
       providesTags: ["Recipes"],
     }),
+    getRecipesById: builder.query({
+      query: (id) => `recipes/${id}`,
+      tagTypes: ["RecipesById"],
+      providesTags: ["RecipesById"],
+    }),
   }),
 });
 
-export const { useGetRecipesQuery } = recipesEndpoint;
+export const { useGetRecipesQuery, useGetRecipesByIdQuery } = recipesEndpoint;
