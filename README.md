@@ -50,7 +50,7 @@ npm run dev
 ## Screenshots
 
 home-page
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/home-page.png)
 mobile-home-page
 ![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 meater-page
