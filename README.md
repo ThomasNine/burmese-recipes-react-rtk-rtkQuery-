@@ -52,12 +52,12 @@ npm run dev
 home-page
 ![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/home-page.png)
 mobile-home-page
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
-meater-page
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/mobile-home-page.png)
+meatEater-page
+![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/meat-page.png)
 detail-page
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/detail-page.png)
 mobile-detail-page
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/mobile-detail-page.png)
 searched-page
-![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/searched-page.png)
