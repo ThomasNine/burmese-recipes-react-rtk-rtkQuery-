@@ -17,7 +17,7 @@ git clone https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-.git
 2.Navigate to the project directory:
 
 ```bash
-cd burmese-recipes-react-rtk-rtkQuery--master/
+cd burmese-recipes-react-rtk-rtkQuery--
 ```
 
 3.Install dependencies:
