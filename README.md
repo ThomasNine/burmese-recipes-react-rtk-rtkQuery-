@@ -43,7 +43,7 @@ npm run dev
 
 ## Tech Stack
 
-**Client:** React, Redux Toolkit, TailwindCSS, NextUi, Shadcn/ui and react-transition-group
+**Client:** React, Redux Toolkit, TailwindCSS, NextUi, Shadcn/ui and Framer-Motion
 
 **Server:** Json-server
 
