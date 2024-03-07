@@ -3,12 +3,18 @@ import { useGetRecipesQuery } from "../store/services/endpoints/recepies.endpoin
 import Card from "../components/Card";
 import { SkeletonCard } from "../components/SkeletonCard";
 import PaginationComponent from "../components/PaginationComponent";
+import { motion } from "framer-motion";
+import { useLocation } from "react-router-dom";
 
 const HomePage = () => {
   const { data, isLoading, isError, isSuccess } = useGetRecipesQuery();
   const numbers = Array.from({ length: 5 }, (_, index) => index + 1);
   const [currentPage, setCurrentPage] = useState(1);
-
+  const fade = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 1 } },
+  };
+  const { pathname } = useLocation();
   if (isLoading) {
     return (
       <div className=" flex justify-center flex-wrap gap-x-3 sm:gap-x-5 gap-y-5 sm:gap-y-7 my-10">
@@ -33,7 +39,12 @@ const HomePage = () => {
     const currentData = data.slice(startIndex, endIndex);
 
     return (
-      <>
+      <motion.div
+        initial="initial"
+        animate="animate"
+        variants={fade}
+        key={pathname}
+      >
         <div className=" flex justify-center flex-wrap gap-x-3 sm:gap-x-5 gap-y-5 sm:gap-y-7 pt-10 pb-5 min-h-[86vh]">
           {currentData?.map((i) => (
             <div key={i.id}>
@@ -48,7 +59,7 @@ const HomePage = () => {
             setCurrentPage={setCurrentPage}
           />
         </div>
-      </>
+      </motion.div>
     );
   }
 };

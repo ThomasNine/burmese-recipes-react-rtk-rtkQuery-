@@ -39,6 +39,7 @@ const PaginationComponent = ({ totalPages, currentPage, setCurrentPage }) => {
     setCurrentPage(i);
     nav(url + i);
   };
+
   return (
     <Pagination>
       <PaginationContent>

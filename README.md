@@ -17,7 +17,7 @@ git clone https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-.git
 2.Navigate to the project directory:
 
 ```bash
-cd burmese-recipes-react-rtk-rtkQuery-.git
+cd burmese-recipes-react-rtk-rtkQuery--master/
 ```
 
 3.Install dependencies:
@@ -50,14 +50,14 @@ npm run dev
 ## Screenshots
 
 home-page
-![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/home-page.png)
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 mobile-home-page
-![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/mobile-home-page.png)
-meatEater-page
-![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/meat-page.png)
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
+meater-page
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 detail-page
-![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/detail-page.png)
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 mobile-detail-page
-![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/mobile-detail-page.png)
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)
 searched-page
-![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/searched-page.png)
+![App Screenshot](https://via.placeholder.com/468x300?text=App+Screenshot+Here)

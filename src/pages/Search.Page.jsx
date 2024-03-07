@@ -5,13 +5,19 @@ import { SkeletonCard } from "../components/SkeletonCard";
 
 import { useGetRecipesQuery } from "../store/services/endpoints/recepies.endpoints";
 import PaginationComponent from "../components/PaginationComponent";
+import { useLocation } from "react-router-dom";
+import { motion } from "framer-motion";
 
 const SearchPage = () => {
   const { data, isLoading, isError, isSuccess } = useGetRecipesQuery();
   const [searchWord, setSearchWords] = useState("");
   const [currentPage, setCurrentPage] = useState(1);
   const numbers = Array.from({ length: 5 }, (_, index) => index + 1);
-
+  const fade = {
+    initial: { opacity: 0 },
+    animate: { opacity: 1, transition: { duration: 1 } },
+  };
+  const { pathname } = useLocation();
   if (isLoading) {
     return (
       <div className=" flex justify-center flex-wrap gap-x-3 sm:gap-x-5 gap-y-5 sm:gap-y-7 my-10">
@@ -39,8 +45,15 @@ const SearchPage = () => {
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = startIndex + itemsPerPage;
     const currentData = searchedData.slice(startIndex, endIndex);
+
     return (
-      <>
+      <motion.div
+        initial="initial"
+        animate="animate"
+        variants={fade}
+        key={pathname}
+      >
+        {" "}
         <div className="flex w-full max-w-60 sm:max-w-sm items-center mx-auto mt-10">
           <Input
             type="search"
@@ -63,7 +76,7 @@ const SearchPage = () => {
             setCurrentPage={setCurrentPage}
           />
         </div>
-      </>
+      </motion.div>
     );
   }
 };
