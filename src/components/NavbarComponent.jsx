@@ -23,7 +23,7 @@ export default function NavbarComponent() {
       <NavbarContent justify="start">
         <NavbarMenuToggle
           aria-label={isMenuOpen ? "Close menu" : "Open menu"}
-          className="sm:hidden"
+          className="md:hidden"
         />
         <NavbarBrand>
           <Link to={"/all-recipes/page/1"}>
@@ -56,7 +56,7 @@ export default function NavbarComponent() {
       </NavbarContent>
       <NavbarContent className="flex gap-1" justify="end">
         <NavbarItem>
-          <Link to={"/search/page/1"}>
+          <NavLink to={"/search/page/1"}>
             <Tooltip content={lang === "eng" ? "Search" : "ရှာဖွေပါ"}>
               <Button isIconOnly size="sm" color="default" variant="bordered">
                 <svg
@@ -75,7 +75,7 @@ export default function NavbarComponent() {
                 </svg>
               </Button>
             </Tooltip>
-          </Link>
+          </NavLink>
         </NavbarItem>
         <NavbarItem>
           <LanguageDropdown />

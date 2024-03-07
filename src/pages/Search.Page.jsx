@@ -53,7 +53,6 @@ const SearchPage = () => {
         variants={fade}
         key={pathname}
       >
-        {" "}
         <div className="flex w-full max-w-60 sm:max-w-sm items-center mx-auto mt-10">
           <Input
             type="search"
