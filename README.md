@@ -25,10 +25,6 @@ cd burmese-recipes-react-rtk-rtkQuery-
 ```bash
 npm install
 ```
-4.Open in VScode
-```bash
-code .
-```
 
 ## Usage
 
@@ -73,5 +69,3 @@ searched-page
 
 404error-page
 ![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/404page.png)
-with skeleton loading page
-![App Screenshot](https://github.com/ThomasNine/burmese-recipes-react-rtk-rtkQuery-/blob/master/public/skeletonLoading.png)
