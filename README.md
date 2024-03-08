@@ -6,7 +6,8 @@ This project is a React application bootstrapped with Vite, utilizing JSON-serve
 
 Before running this project, ensure you have Node.js and npm installed on your machine.
 
-## Installation(non-json-sever version)
+## Installation(
+### non-json-sever version)
 
 1.Clone the repository to your local machine:
 
@@ -25,14 +26,16 @@ cd burmese-recipes-react-rtk-rtkQuery-
 ```bash
 npm install
 ```
-4.Json-server verion with RTK query(Optional)
+4.Json-server verion with RTK query
+### (Optional)
 ```bash
 git checkout 6651e8cbe709d7b747a6d7756662effc30d51ac0
 ```
 ## Usage
 
 To start the development server and JSON-server simultaneously,
-for Json-server run:(only for json server version)
+for Json-server run:
+### (only for json server version)
 
 ```bash
 npm run api
