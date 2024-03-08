@@ -1,4 +1,0 @@
-{
-  "buildCommand": "npm run build",
-  "public": ["dist/*", "src/db/mock.json"]
-}
